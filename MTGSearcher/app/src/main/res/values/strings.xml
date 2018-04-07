@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">MTGSearcher</string>
+
+    <string name="rarity_with_colon">稀有度:</string>
+    <string name="own_by_with_colon">属于:</string>
+    <string name="index_in_edition_with_colon">版本内序号:</string>
+    <string name="description_with_colon">描述:</string>
+    <string name="other_part_with_colon">另一部分:</string>
+
+    <string name="option_with_colon">选项:</string>
+    <string name="color_with_colon">颜色:</string>
+    <string name="mana_cost_with_colon">费用:</string>
+    <string name="pow_with_colon">力量:</string>
+    <string name="tou_with_colon">防御:</string>
+    <string name="total_mana_cost_with_colon">总费用:</string>
+
+    <string name="match_the_full_name">必须匹配全名</string>
+    <string name="local_language">简体中文</string>
+
+    <string name="card_text_with_colon">规则:</string>
+    <string name="card_text_hint">类别, 副类别, 描述</string>
+    <string name="card_flavor_with_colon">背景:</string>
+    <string name="card_artist_with_colon">画家:</string>
+
+    <string name="card_cost_hint">XYZ, 0–9, WUBRG的组合</string>
+    <string name="equal_pow">等于力量</string>
+    <string name="equal_tou">等于防御</string>
+
+    <string name="white">白</string>
+    <string name="blue">蓝</string>
+    <string name="black">黑</string>
+    <string name="red">红</string>
+    <string name="green">绿</string>
+    <string name="colorless">无色</string>
+    <string name="must_muticolor">必须多色</string>
+    <string name="not_include_color_which_not_be_choosen">不能有未选的颜色</string>
+
+    <string name="search_hint">输入关键字</string>
+
+    <string name="card_price_ref">Card Price by TCGPlayer</string>
+
+    <string name="watch_all_printings">查看所有版次</string>
+    <string name="watch_all_editions">查看所有版本</string>
+    <string name="watch_all_languages">查看其他语言</string>
+
+    <!--所有其他-->
+
+</resources>

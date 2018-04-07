@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="pers.sxqsachin.mtgsearcher.struct.mtg.card.MTGCard"/>
+        <variable name="card" type="MTGCard"/>
+    </data>
+
+    <android.support.percent.PercentRelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/v_divide_1_price"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:background="#E3E3E3"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_card_low_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="25%"
+
+            android:text="@{card.cardPrice.lowPrice}"
+            android:textSize="14sp"
+            android:gravity="start"
+
+            android:layout_below="@id/v_divide_1_price"
+            android:layout_alignParentStart="true"
+
+            android:layout_marginTop="8dp"
+            app:layout_marginStartPercent="7.5%"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_card_mid_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="25%"
+
+            android:text="@{card.cardPrice.midPrice}"
+            android:textSize="14sp"
+            android:gravity="center"
+
+            android:layout_toEndOf="@id/tv_card_low_price"
+
+            android:layout_alignTop="@id/tv_card_low_price"
+            android:layout_alignBottom="@id/tv_card_low_price"
+
+            app:layout_marginStartPercent="5%"
+
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_card_high_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="25%"
+
+            android:text="@{card.cardPrice.highPrice}"
+            android:textSize="14sp"
+            android:gravity="end"
+
+            android:layout_alignTop="@id/tv_card_low_price"
+            android:layout_alignBottom="@id/tv_card_low_price"
+            android:layout_alignParentEnd="true"
+
+            app:layout_marginEndPercent="7.5%"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_card_price_ref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/card_price_ref"
+            android:textSize="14sp"
+            android:gravity="start"
+
+            android:layout_below="@id/tv_card_low_price"
+            android:layout_alignStart="@id/tv_card_low_price"
+
+            android:layout_marginTop="8dp"
+            />
+
+        <View
+            android:id="@+id/v_divide_price_2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:background="#E3E3E3"
+
+            android:layout_below="@id/tv_card_price_ref"
+
+            android:layout_marginTop="8dp"
+            />
+
+    </android.support.percent.PercentRelativeLayout>
+</layout>

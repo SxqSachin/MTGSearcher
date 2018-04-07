@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <import type="pers.sxqsachin.mtgsearcher.struct.mtg.card.MTGCard"/>
+        <variable name="card" type="MTGCard"/>
+    </data>
+
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/abl_card_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tb_card_detail"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+
+                app:title="@{card.cardName}"
+                app:titleTextColor="#FFFFFF"
+                />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srl_card_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@id/abl_card_detail">
+
+            <ScrollView
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/rl_card_detail"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/part_card_detail_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        layout="@layout/part_card_detail_1"
+
+                        app:card="@{card}"/>
+
+                    <include
+                        android:id="@+id/part_card_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        layout="@layout/part_card_price"
+
+                        app:card="@{card}"
+
+                        android:layout_below="@id/part_card_detail_1"
+                        android:layout_marginTop="8dp"
+                        />
+
+                    <include
+                        android:id="@+id/part_card_detail_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        layout="@layout/part_card_detail_2"
+
+                        app:card="@{card}"
+
+                        android:layout_below="@id/part_card_price"
+                        android:layout_marginTop="8dp"
+                        />
+
+                </android.support.percent.PercentRelativeLayout>
+            </ScrollView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+</layout>

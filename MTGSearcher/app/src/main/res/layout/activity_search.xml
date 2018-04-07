@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="pers.sxqsachin.mtgsearcher.uidata.UIData_Search"/>
+        <variable name="data" type="UIData_Search"/>
+    </data>
+
+    <android.support.percent.PercentRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/abl_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tb_search"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/et_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+
+                        android:hint="@string/search_hint"
+                        android:textColorHint="#4CFFFFFF"
+
+                        android:textSize="16sp"
+                        android:textColor="#FFFFFFFF"
+
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:imeOptions="actionSearch"
+
+                        android:paddingStart="12sp"
+                        android:paddingEnd="56dp"
+
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+
+                        app:addTextChangedListener="@{data.mKeywordTextWatcher}"
+                        />
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/ib_search"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+
+                        android:background="#00000000"
+                        android:src="@drawable/ic_search"
+
+                        android:layout_alignEnd="@id/et_search"
+                        android:layout_alignTop="@id/et_search"
+
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="12dp"
+                        />
+
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@id/abl_search"
+            >
+
+            <android.support.percent.PercentRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_option"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/option_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="24dp"
+                    />
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/sp_v_option"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="33%"
+
+                    android:layout_toEndOf="@id/tv_option"
+                    android:layout_alignBottom="@id/tv_option"
+                    android:layout_marginStart="16dp"/>
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/sp_s_option"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="33%"
+
+                    android:layout_toEndOf="@id/sp_v_option"
+                    android:layout_alignBottom="@id/sp_v_option"
+                    android:layout_marginStart="32dp"/>
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_match_the_full_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/match_the_full_name"
+                    android:textSize="14sp"
+
+                    android:checked="@{data.matchTheFullName}"
+
+                    android:layout_below="@id/sp_v_option"
+                    android:layout_alignStart="@id/sp_v_option"
+
+                    android:layout_marginTop="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_local_language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/local_language"
+                    android:textSize="14sp"
+
+                    android:checked="@{data.useLocalLanguage}"
+
+                    android:layout_below="@id/sp_s_option"
+                    android:layout_alignStart="@id/sp_s_option"
+
+                    android:layout_marginTop="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_card_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/card_text_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_below="@id/cb_match_the_full_name"
+                    android:layout_alignStart="@id/tv_option"
+
+                    android:layout_marginTop="16dp"
+                    />
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_card_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="224dp"
+
+                    android:hint="@string/card_text_hint"
+                    android:textColorHint="#4CB3B3B3"
+
+                    android:textSize="16sp"
+                    android:paddingStart="12sp"
+                    android:paddingEnd="12sp"
+
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+
+                    android:layout_toEndOf="@id/tv_card_text"
+                    android:layout_alignTop="@id/tv_card_text"
+
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="-10dp"
+
+                    app:addTextChangedListener="@{data.mCardTextTextWatcher}"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_card_flavor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/card_flavor_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_below="@id/tv_card_text"
+                    android:layout_alignStart="@id/tv_card_text"
+
+                    android:layout_marginTop="24dp"
+                    />
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_card_flavor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="224dp"
+
+                    android:textSize="16sp"
+                    android:paddingStart="12sp"
+                    android:paddingEnd="12sp"
+
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+
+                    android:layout_toEndOf="@id/tv_card_flavor"
+                    android:layout_alignTop="@id/tv_card_flavor"
+
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="-10dp"
+
+                    app:addTextChangedListener="@{data.mCardFlavorTextWatcher}"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_card_artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/card_artist_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_below="@id/tv_card_flavor"
+                    android:layout_alignStart="@id/tv_card_flavor"
+
+                    android:layout_marginTop="24dp"
+                    />
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_card_artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="224dp"
+
+                    android:textSize="16sp"
+                    android:paddingStart="12sp"
+                    android:paddingEnd="12sp"
+
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+
+                    android:layout_toEndOf="@id/tv_card_artist"
+                    android:layout_alignTop="@id/tv_card_artist"
+
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="-10dp"
+
+                    app:addTextChangedListener="@{data.mCardArtistTextWatcher}"
+                    />
+
+                <!---->
+
+                <View
+                    android:id="@+id/v_divide_option_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E3E3E3"
+
+                    android:layout_below="@id/et_card_artist"
+                    android:layout_marginTop="16dp"
+                    />
+
+                <!---->
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/color_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_below="@id/v_divide_option_color"
+                    android:layout_alignStart="@id/tv_option"
+
+                    android:layout_marginTop="16dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_color_white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="12.5%"
+
+                    android:text="@string/white"
+
+                    android:layout_toEndOf="@id/tv_color"
+                    android:layout_alignTop="@id/tv_color"
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="-6dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_color_blue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="12.5%"
+
+                    android:text="@string/blue"
+
+                    android:layout_toEndOf="@id/cb_color_white"
+                    android:layout_alignTop="@id/cb_color_white"
+                    android:layout_alignBottom="@id/cb_color_white"
+
+                    android:layout_marginStart="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_color_black"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="12.5%"
+
+                    android:text="@string/black"
+
+                    android:layout_toEndOf="@id/cb_color_blue"
+                    android:layout_alignTop="@id/cb_color_blue"
+                    android:layout_alignBottom="@id/cb_color_blue"
+
+                    android:layout_marginStart="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_color_red"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="12.5%"
+
+                    android:text="@string/red"
+
+                    android:layout_toEndOf="@id/cb_color_black"
+                    android:layout_alignTop="@id/cb_color_black"
+                    android:layout_alignBottom="@id/cb_color_black"
+
+                    android:layout_marginStart="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_color_green"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="12.5%"
+
+                    android:text="@string/green"
+                    android:textSize="14sp"
+
+                    android:layout_toEndOf="@id/cb_color_red"
+                    android:layout_alignTop="@id/cb_color_red"
+                    android:layout_alignBottom="@id/cb_color_red"
+
+                    android:layout_marginStart="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_color_colorless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/colorless"
+                    android:textSize="14sp"
+
+                    android:layout_below="@id/cb_color_white"
+                    android:layout_toEndOf="@id/tv_color"
+
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_color_must_muticolor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/must_muticolor"
+                    android:textSize="14sp"
+
+                    android:checked="@{data.colorMustMutiColorState}"
+
+                    android:layout_below="@id/cb_color_colorless"
+                    android:layout_toEndOf="@id/tv_color"
+
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_not_include_color_which_not_be_choosen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/not_include_color_which_not_be_choosen"
+                    android:textSize="14sp"
+
+                    android:checked="@{data.colorNoChoosenColorState}"
+
+                    android:layout_toEndOf="@id/cb_color_blue"
+                    android:layout_alignTop="@id/cb_color_must_muticolor"
+                    android:layout_alignBottom="@id/cb_color_must_muticolor"
+
+                    android:layout_marginStart="8dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+
+                <!---->
+
+                <View
+                    android:id="@+id/v_divide_color_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E3E3E3"
+
+                    android:layout_below="@id/cb_not_include_color_which_not_be_choosen"
+                    android:layout_marginTop="16dp"
+                    />
+
+                <!---->
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_mana_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/mana_cost_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_below="@id/v_divide_color_cost"
+                    android:layout_alignStart="@id/tv_color"
+
+                    android:layout_marginTop="16dp"
+                    />
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_mana_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="168dp"
+
+                    android:textSize="16sp"
+                    android:paddingStart="12sp"
+                    android:paddingEnd="12sp"
+
+                    android:hint="@string/card_cost_hint"
+                    android:textColorHint="#4CB3B3B3"
+
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+
+                    android:layout_toEndOf="@id/tv_mana_cost"
+                    android:layout_alignTop="@id/tv_mana_cost"
+
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="-10dp"
+
+                    app:addTextChangedListener="@{data.mCardCostTextWatcher}"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_pow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/pow_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_below="@id/tv_mana_cost"
+                    android:layout_alignStart="@id/tv_mana_cost"
+
+                    android:layout_marginTop="24dp"
+                    />
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_pow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="140dp"
+
+                    android:text="@{data.pow}"
+                    android:textSize="16sp"
+                    android:paddingStart="12sp"
+                    android:paddingEnd="12sp"
+
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
+
+                    android:enabled="@{data.powEnable ? true : false}"
+
+                    android:layout_toEndOf="@id/tv_pow"
+                    android:layout_alignTop="@id/tv_pow"
+                    android:layout_alignStart="@id/et_mana_cost"
+
+                    android:layout_marginTop="-10dp"
+
+                    app:addTextChangedListener="@{data.mCardPowTextWatcher}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_pow_equal_tou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/equal_tou"
+                    android:textSize="14sp"
+
+                    android:layout_toEndOf="@id/et_pow"
+                    android:layout_alignTop="@id/et_pow"
+
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_tou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/tou_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_below="@id/tv_pow"
+                    android:layout_alignStart="@id/tv_pow"
+
+                    android:layout_marginTop="24dp"
+                    />
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_tou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="140dp"
+
+                    android:text="@{data.tou}"
+                    android:textSize="16sp"
+                    android:paddingStart="12sp"
+                    android:paddingEnd="12sp"
+
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
+
+                    android:enabled="@{data.touEnable ? true : false}"
+
+                    android:layout_toEndOf="@id/tv_tou"
+                    android:layout_alignTop="@id/tv_tou"
+                    android:layout_alignStart="@id/et_mana_cost"
+
+                    android:layout_marginTop="-10dp"
+
+                    app:addTextChangedListener="@{data.mCardTouTextWatcher}"
+                    />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_tou_equal_pow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/equal_pow"
+                    android:textSize="14sp"
+
+                    android:layout_toEndOf="@id/et_tou"
+                    android:layout_alignTop="@id/et_tou"
+
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+
+                    app:onClickListener="@{data::onClick}"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_total_mana_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/total_mana_cost_with_colon"
+                    android:textSize="16sp"
+
+                    android:layout_below="@id/tv_tou"
+                    android:layout_alignStart="@id/tv_tou"
+
+                    android:layout_marginTop="24dp"
+                    />
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_total_mana_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="168dp"
+
+                    android:textSize="16sp"
+                    android:paddingStart="12sp"
+                    android:paddingEnd="12sp"
+
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
+
+                    android:layout_toEndOf="@id/tv_total_mana_cost"
+                    android:layout_alignTop="@id/tv_total_mana_cost"
+                    android:layout_alignStart="@id/et_mana_cost"
+                    android:layout_alignEnd="@id/et_mana_cost"
+
+                    android:layout_marginTop="-10dp"
+
+                    app:addTextChangedListener="@{data.mCardTotalCostTextWatcher}"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/rg_total_cost_equal_pow_tou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignStart="@id/et_total_mana_cost"
+                    android:layout_below="@id/et_total_mana_cost"
+
+                    android:layout_marginTop="8dp"
+
+                    android:orientation="horizontal"
+                    >
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rb_total_cost_equal_pow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/equal_pow"
+                        android:textSize="14sp"
+                        />
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rb_total_cost_equal_tou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/equal_tou"
+                        android:textSize="14sp"
+
+                        android:layout_marginStart="16dp"
+                        />
+                </RadioGroup>
+
+                <!---->
+
+                <View
+                    android:id="@+id/v_divide_cost_rarity"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E3E3E3"
+
+                    android:layout_below="@id/rg_total_cost_equal_pow_tou"
+                    android:layout_marginTop="16dp"
+                    />
+
+                <!---->
+
+            </android.support.percent.PercentRelativeLayout>
+        </ScrollView>
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

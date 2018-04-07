@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="pers.sxqsachin.mtgsearcher.uidata.ViewData_BitmapViewer"/>
+        <variable name="data" type="ViewData_BitmapViewer"/>
+    </data>
+    
+    <RelativeLayout
+        android:id="@+id/rl_image_view_root"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="#FF000000"
+        >
+        
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_bitmap_viewer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:setImageBitmap="@{data.bitmap}"
+
+            android:scaleX="1.618"
+            android:scaleY="1.618"
+
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+
+</layout>

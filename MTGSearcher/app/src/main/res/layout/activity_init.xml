@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <import type="pers.sxqsachin.mtgsearcher.uidata.UIData_Init"/>
+        <variable name="data" type="UIData_Init"/>
+    </data>
+
+    <android.support.percent.PercentRelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <pers.sxqsachin.mtgsearcher.ui.view.URLImageView
+            android:id="@+id/iv_random_card_blur"
+            android:layout_width="800dp"
+            android:layout_height="1200dp"
+
+            android:layout_centerInParent="true"/>
+
+        <pers.sxqsachin.mtgsearcher.ui.view.URLImageView
+            android:id="@+id/iv_random_card"
+            android:layout_width="250dp"
+            android:layout_height="356dp"
+
+            android:layout_centerInParent="true"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_random_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@{data.initViewRandomCard.cardName}"
+            android:gravity="center"
+
+            android:layout_alignStart="@id/iv_random_card"
+            android:layout_alignEnd="@id/iv_random_card"
+            />
+
+    </android.support.percent.PercentRelativeLayout>
+</layout>

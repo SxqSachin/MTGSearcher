@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="pers.sxqsachin.mtgsearcher.uidata.UIData_SearchResult"/>
+        <import type="pers.sxqsachin.mtgsearcher.ui.activity.Activity_SearchResult"/>
+        <variable name="data" type="UIData_SearchResult"/>
+        <variable name="activity" type="Activity_SearchResult"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cl_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rv_search_result"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/abl_search_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/tb_search_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+
+                    app:title="@{data.title}"
+                    app:titleTextColor="@{data.titleTextColor}"
+                    />
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/srl_search_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@id/abl_search_result"
+                >
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_cards"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                </android.support.v7.widget.RecyclerView>
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+        </RelativeLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
